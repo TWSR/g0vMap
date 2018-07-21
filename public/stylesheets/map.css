@@ -1,0 +1,85 @@
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+#map-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin-left: 0;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#infowindow {
+    height: 30%;
+    width: 30%;
+}
+
+#view-option {
+    background-color: transparent;
+    z-index: 9999;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 10px;
+    bottom: 10px;
+}
+
+.road-info-table td {
+    width: 100%;
+}
+
+.btn {
+    background-color: cornflowerblue;
+}
+
+#gov-banner {
+    position: absolute;
+    top: 1vh;
+    height: 30px;
+    left: 40%;
+}
+
+#github-icon {
+    position: absolute;
+    top: 1vh;
+    height: 30px;
+    left: 50%;
+}
+
+#download-icon {
+    position: absolute;
+    top: 1vh;
+    height: 30px;
+    left: 60%;
+}
+
+#twsr-icon {
+    position: absolute;
+    top: 1vh;
+    height: 30px;
+    left: 30%;
+    border-radius: 50%;
+}
+
+#notch {
+    position: absolute;
+    top: 0vh;
+    right: 35%;
+    height: 10%;
+    width: 40%;
+    border-radius: 0 0 20px 20px;
+    /* opacity: 0.9; */
+    background-color: rgb(0, 0, 0, 0.4);
+}

@@ -1,0 +1,81 @@
+extends layout
+block append style
+  link(rel="stylesheet" href="/leaflet/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="")
+  link(rel="stylesheet", href="/stylesheets/map.css")
+  link(rel="shortcut icon" href="images/favicon.ico" type="image/x-icon")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css")
+block append script
+  //- script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCPuT9Vf3fsgi3_1w1ALyqxESyaQw4EAf8&libraries=visualization")
+  script(defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js")
+  script(src="/moment/moment.js")
+  //- the lib in bower vender is for bootstrap3
+  //- script(src="/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js")
+  script(src="/javascripts/mapUtility.js")
+  script(src="/javascripts/map.js")  
+  script(src="/leaflet/dist/leaflet.js")
+  script(src="/leaflet-polylinedecorator/dist/leaflet.polylineDecorator.js")  
+block content
+  #view-option
+    //- Button trigger modal
+    button.btn.btn-primary(type='button', data-toggle='modal', data-target='#modalCenter')
+      | Filter box
+    Filter
+    #modalCenter.modal.fade(tabindex='-1', role='dialog', aria-labelledby='modalCenterTitle', aria-hidden='true')
+      .modal-dialog.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5#modalLongTitle.modal-title Filter option
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            .container
+              .col-md-12
+                .form-group.row                  
+                  Label 指標門檻                  
+                  input#slider.form-control-range.col-md-10(type="range", min="0" max="5" value="2", step="0.2")
+                  label#smooth-index.col-form-label.text-center.col-md-2(for ="slider") 2                  
+              //- .col-md-12
+              //-   .form-group.row
+              //-     select#vehicle_type.form-control
+              //-       option(value="" disabled selected) chose vehicle type...
+              //-       option(value="") all
+              //-       option(value="car") car
+              //-       option(value="bus") bus
+              //-       option(value="moto") moto
+              //-       option(value="bike") bike
+              //-       option(value="MRT") MRT
+              //-       option(value="train") train
+              //- .col-md-12
+              //-   .form-group.row
+              //-     select#user.form-control
+              //-       option(value="" disabled selected) chose user...
+              //-       option(value="") all
+              .col-md-12
+                .form-group.row
+                  #datetimepickerS.input-group.date(data-target-input='nearest')
+                    input.form-control.datetimepicker-input(type='text', data-target='#datetimepickerS', placeholder="start time")
+                    .input-group-append(data-target='#datetimepickerS', data-toggle='datetimepicker')
+                      .input-group-text
+                        i.fa.fa-calendar
+              .col-md-12
+                .form-group.row
+                  #datetimepickerE.input-group.date(data-target-input='nearest')
+                    input.form-control.datetimepicker-input(type='text', data-target='#datetimepickerE', placeholder="end time")
+                    .input-group-append(data-target='#datetimepickerE', data-toggle='datetimepicker')
+                      .input-group-text
+                        i.fa.fa-calendar
+          .modal-footer            
+            button#filter.btn.btn-success(type='button', data-dismiss="modal") Filter
+  #map-container        
+    #map
+  a(href="https://twsr.github.io/landing/")
+    img#twsr-icon(src="/images/favicon.ico" title="link to landing page")
+  a(href="https://g0v.tw/zh-TW/index.html")
+    img#gov-banner(src="/images/g0v.png" title="link to g0v")
+  a(href="https://github.com/TWSR")
+    img#github-icon(src="/images/GitHub-Mark-120px-plus.png" title="link to github")
+  a#downlink(href="")
+    img#download-icon(src="/images/download.png" title="download as JSON")
+  
+  
